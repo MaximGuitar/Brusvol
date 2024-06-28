@@ -1,0 +1,49 @@
+.types {
+    margin-bottom: clampFluid(30, 150);
+
+    &__title {
+        @include font-h1;
+        margin-bottom: clampFluid(50, 30);
+    }
+
+    &__list {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: clampFluid(15);
+
+        @media (max-width: 1024px) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @media (max-width: 650px) {
+            grid-template-columns: 1fr;
+        }
+
+    }
+
+    &__card {
+
+        border: 1px solid #588535;
+        border-radius: 10px;
+
+        .img-container {
+            overflow: hidden;
+            border-radius: 10px;
+            height: clampFluid(329);
+            margin-bottom: clampFluid(15);
+
+            img {
+                object-fit: cover;
+            }
+        }
+
+        &:hover {
+            background: white;
+        }
+    }
+
+    &__name {
+        @include font-h3;
+        padding: clampFluid(15);
+    }
+}

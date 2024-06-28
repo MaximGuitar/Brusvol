@@ -1,0 +1,97 @@
+.our-production-section {
+
+    .our-production {
+        margin-bottom: clampFluid(130);
+
+        .our-production-catalog {
+            position: relative;
+            margin-bottom: clampFluid(70);
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: clampFluid(30);
+
+
+            &__elem {
+                height: auto;
+
+                .img-container {
+                    position: relative;
+                    width: 100%;
+                    height: clampFluid(366);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    .btn {
+                        position: absolute;
+                        opacity: 0;
+                        background: #292E24;
+
+                    }
+
+                    img {}
+                }
+
+                .title {
+                    margin-top: -15px;
+                    padding-top: clampFluid(46);
+                    padding-bottom: clampFluid(30);
+                    @include font-h3;
+                    padding-left: clampFluid(21);
+
+                    @media (max-width: 1024px) {
+                        @include font-h2;
+                    }
+                    color: #020202;
+                }
+
+                &:hover {
+                    background: white;
+                    border-radius: 25px 2px 25px 2px;
+                    text-decoration: none;
+
+                    .img-container {
+                        background: white;
+
+                        .btn {
+                            transition: $transition-fast;
+                            opacity: 1;
+
+                            .arrow {
+                                fill: $hoverCol1;
+                            }
+                        }
+
+                        img {
+                            // filter: blur(4px);
+                            backdrop-filter: blur(5.1);
+                            background: rgba(34, 39, 28, 0.50);
+                            transition: $transition-fast;
+                        }
+                    }
+
+                    .title {
+                        border-radius: 0px 2px 25px 2px;
+                        transition: $transition-fast;
+                        color: $hoverCol1;
+                        background: white;
+
+                    }
+                }
+            }
+
+            @media (max-width: 1200px) {
+                grid-template-columns: repeat(2, 1fr);
+
+                .img-container {
+                    height: auto;
+                }
+            }
+
+            @media (max-width: 530px) {
+                grid-template-columns: repeat(1, 1fr);
+            }
+        }
+    }
+
+}

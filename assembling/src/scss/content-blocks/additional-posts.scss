@@ -1,0 +1,32 @@
+.additional-products-wrapper {
+    .additional-products {
+        display: flex;
+
+        @media (max-width: 1150px) {
+            flex-direction: column;
+        }
+
+        &__title {
+            @include font-h3;
+            margin-top: 30px;
+            margin-right: clampFluid(15, 82, 1150, 1920);
+            text-wrap: nowrap;
+
+            @media (max-width: 1150px) {
+                margin-top: 0;
+                margin-right: 0;
+                margin-bottom: 16px;
+                @include font-h2;
+            }
+        }
+
+        .products {
+            @media (max-width: 1150px) {
+                grid-template-columns: 1fr 1fr;
+            }
+            @media (max-width: 1150px) {
+                grid-template-columns: 1fr;
+            }
+        }
+    }
+}

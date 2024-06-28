@@ -1,0 +1,203 @@
+.our-works-block-wrapper {
+
+    margin-bottom: clampFluid(100, 170, 1025, 1920);
+
+    @media (max-width: 1024px) {
+        margin-bottom: clampFluid(70, 100, 370, 1025);
+    }
+
+    .dotters {
+        width: 100%;
+        display: flex;
+        margin-top: 10px;
+        justify-content: center;
+
+        .swiper-pagination-bullet {
+            background: #9BB686;
+        }
+
+        .swiper-pagination-bullet-active {
+            background: $greenCol;
+        }
+
+        margin-bottom: 35px;
+    }
+
+    .title {
+        @include font-h1;
+        text-align: center;
+        margin-bottom: clampFluid(50, 60, 1025, 1920);
+
+        @media (max-width: 1024px) {
+            margin-bottom: clampFluid(39, 50, 370, 1025);
+        }
+    }
+
+    .our-works-block {
+
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(3, clampFluid(280));
+
+        @media (max-width: 1500px) {
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(4, clampFluid(280));
+        }
+
+        @media (max-width: 1024px) {
+            grid-template-rows: repeat(6, clampFluid(200, 316, 600, 1024));
+        }
+
+        .img-container {
+            height: 100%;
+        }
+
+        img {
+            object-fit: cover;
+        }
+
+        gap: 16px;
+
+        @media (max-width: 1500px) {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        @media (max-width: 1024px) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @media (max-width: 600px) {
+            display: flex;
+            gap: 0;
+            margin-bottom: 10px;
+        }
+
+
+        &__card {
+            position: relative;
+
+            // height: clampFluid(280px);
+
+            // .img-container {
+            //     height: clampFluid(280px);
+
+            //     img {
+            //         object-fit: cover;
+            //     }
+            // }
+
+            .blur {
+                opacity: 0;
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: #1C1F1880;
+                z-index: 1;
+                transition: $transition-fast;
+
+            }
+
+            .btn {
+                padding: 20px 30px;
+                opacity: 0;
+                z-index: 2;
+                position: absolute;
+                bottom: 22px;
+                left: 21px;
+                background: #292E24;
+                border: none;
+                transition: $transition-fast;
+                &:hover{
+                    color: white;
+                }
+                svg {
+                    fill: $greenCol;
+                }
+
+                @media (max-width: 1024px) {
+                    opacity: 1;
+                    background: #1C1F18;
+
+                    svg {
+                        fill: white;
+                    }
+                }
+
+                @media (max-width: 600px) {
+                    bottom: 10px;
+                    left: 10px;
+                }
+            }
+
+            &:hover {
+                transition: $transition-fast;
+
+                .btn {
+                    opacity: 1;
+                }
+
+                .blur {
+                    opacity: 1;
+                }
+
+                img {
+                    filter: blur(3px);
+                }
+            }
+        }
+
+        &__last-card {
+            background: #F8F8F8;
+
+            &:hover {
+                background: #FFFFFF;
+                text-decoration: none;
+                .btn {
+                    background: #292E24;
+                    border: 2px #292E24 solid;
+                    color: white;
+                }
+            }
+
+            .text {
+                font-size: 24px;
+                font-weight: 500;
+                line-height: 26px;
+            }
+
+            display: flex;
+            flex-direction: column;
+            padding: 30px;
+            grid-row: 3/4;
+            grid-column: 4/5;
+
+            @media (max-width: 1500px) {
+                grid-column: 3/4;
+                grid-row: 4/5;
+            }
+
+            @media (max-width: 1024px) {
+                grid-column: 1/2;
+                grid-row: 6/7;
+                height: clampFluid(233, 316, 700, 1025);
+            }
+
+            .btn {
+                margin-top: auto;
+                background: transparent;
+                color: $greenCol;
+                transition: $transition-fast;
+
+                svg {
+                    fill: $greenCol;
+                }
+            }
+
+            @media (max-width: 600px) {
+                display: none;
+            }
+        }
+    }
+}

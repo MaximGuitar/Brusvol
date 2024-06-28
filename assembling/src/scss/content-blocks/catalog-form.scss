@@ -1,0 +1,192 @@
+.catalog-form-wrapper {
+    grid-column: 1/4;
+    grid-row: 3/4;
+    background: #1C1F18;
+    border-radius: 25px 2px 25px 2px;
+    padding: 45px 94px 42px;
+    width: 100%;
+
+    @media (max-width: 1350px) {
+        grid-column: 1/3;
+        grid-row: 4/5;
+        padding: 40px 30px;
+    }
+
+    @media (max-width: 800px) {
+        grid-column: 1/2;
+        grid-row: 7/8;
+    }
+}
+
+.catalog-form {
+
+    display: grid;
+    grid-template-columns: clampFluid(392) auto;
+
+    @media (max-width: 1200px) {
+        grid-template-columns: auto clampFluid(340, 400, 800, 1200);
+    }
+
+    @media (max-width: 800px) {
+        grid-template-columns: 1fr;
+    }
+
+    .title {
+        grid-column: 1/2;
+        @include font-h2;
+        color: white;
+        margin-bottom: clampFluid(44);
+
+        @media (max-width: 1200px) {
+            grid-column: 1/3;
+            @include font-h1;
+            margin-bottom: clampFluid(20,40,800,1200);
+            width: 80%;
+            color: white;
+        }
+
+        @media (max-width: 800px) {
+            grid-column: 1/2;
+        }
+    }
+
+    .descr {
+        grid-column: 2/3;
+        margin-right: clampFluid(50);
+
+        @media (max-width: 1200px) {
+            grid-column: 1/2;
+            margin-right: 38px;
+        }
+
+        @media (max-width: 800px) {
+            margin-bottom: 30px;
+        }
+
+        h3 {
+            @include font-h3;
+            margin-bottom: 15px;
+            margin-left: 29px;
+            color: white;
+
+            @media (max-width: 1200px) {
+                @include font-h2;
+                color: white;
+                margin-left: 0;
+            }
+        }
+
+        ul {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px 12px;
+
+            @media (max-width: 1200px) {
+                gap: 10px;
+                grid-template-columns: 1fr;
+            }
+
+            li {
+                @include font-p;
+                position: relative;
+                color: #A7A9A4;
+
+                &::before {
+                    position: absolute;
+                    left: -15px;
+                }
+            }
+        }
+    }
+
+
+    .input-wrapper {
+        input {
+            height: 64px;
+            @media (max-width: 800px) {
+                height: 51px;
+            }
+        }
+
+        .btn {
+            height: 61px;
+        }
+
+        grid-column: 1/3;
+        align-items: center;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 28px;
+        margin-bottom: 23px;
+
+        @media (max-width: 1200px) {
+            grid-column: 2/3;
+            grid-template-columns: 1fr;
+            gap: 11px;
+
+            @media (max-width: 800px) {
+                grid-column: 1/2;
+            }
+
+            .btn {
+                width: 100%;
+            }
+        }
+    }
+
+    &__policy {
+        grid-column: 1/3;
+        color: white;
+        text-align: center;
+
+        @media (max-width: 1200px) {
+            grid-column: 2/3;
+        }
+
+        @media (max-width: 800px) {
+            grid-column: 1/2;
+        }
+
+        span {
+            color: white;
+        }
+
+        a {
+            color: white;
+            text-decoration: underline 1px solid white;
+            text-underline-offset: 3px;
+
+            &:hover {
+                color: $greenCol;
+                text-decoration: underline 1px solid $greenCol;
+            }
+        }
+    }
+}
+
+.calendar-wrapper {
+    position: relative;
+
+    input {
+        width: 100%;
+    }
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    svg {
+        pointer-events: none;
+        position: absolute;
+        top: 25%;
+        right: 27px;
+        width: clampFluid(20, 25);
+        height: clampFluid(20, 25);
+        fill: white;
+        cursor: pointer;
+
+        &:hover {
+            fill: white;
+        }
+    }
+}

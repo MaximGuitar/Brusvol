@@ -1,0 +1,136 @@
+.card-complectation {
+    margin-bottom: 110px;
+
+    .title-block {
+        display: flex;
+        align-items: end;
+        margin-bottom: clampFluid(36);
+
+        .title {
+            @include font-h1;
+            margin-right: 10px;
+        }
+
+        .subtitle {
+            @include font-signS;
+            color: #4E5249;
+            margin-bottom: 5px;
+            @media (max-width: 800px) {
+                margin-bottom: 0;
+                text-wrap: nowrap;
+            }
+        }
+    }
+
+    .complectations {
+
+        .tabs-control {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px 30px;
+            margin-bottom: 30px;
+
+            @media (max-width: 800px) {
+                gap: 10px 16px;
+            }
+
+            &__elem {
+                @include font-h3;
+                cursor: pointer;
+
+                @media (max-width: 1200px) {
+                    @include font-h2;
+                }
+
+                &.active {
+                    text-decoration: underline 1px solid $greenCol;
+                    color: $greenCol;
+                    text-underline-offset: 9px;
+                }
+            }
+        }
+
+        &__tabs {}
+
+        &__elem {
+            display: none;
+            position: relative;
+            overflow-x: auto;
+            width: 100%;
+            min-width: 100%;
+            padding-bottom: clampFluid(18,30);
+
+
+            &.active {
+                display: block;
+            }
+
+            table {
+                overflow: hidden;
+                border-collapse: collapse;
+                // border-radius: 25px 2px 25px 2px;
+                width: 100% !important;
+
+                @media (max-width: 1024px) {
+                    width: clampFluid(777, 1512, 370, 1024) !important;
+                }
+
+            }
+
+            td {
+                border: 1px solid #4e524944;
+                text-align: center;
+                padding: 30px;
+
+                &:first-child {
+                    text-align: left;
+
+                    strong {
+                        display: block;
+                        @include font-h3;
+                    }
+
+                }
+
+                svg {
+                    width: 30px;
+                    height: 30px;
+                }
+
+                .TablePrice {
+                    display: block;
+                    @include font-h3;
+                    margin-bottom: 20px;
+                    text-align: center;
+                }
+
+                .btn {
+                    margin: auto;
+                    padding: 20px 27px;
+
+                    .text {
+                        text-wrap: nowrap;
+                        pointer-events: none;
+                    }
+
+                    .arrow {
+                        margin-left: clampFluid(95);
+                        width: 40px;
+                        height: 14px;
+                        pointer-events: none;
+                    }
+                }
+            }
+
+            tr {
+                &:first-child {
+                    td {
+                        text-align: center;
+                        @include font-h3;
+                        color: $greenCol;
+                    }
+                }
+            }
+        }
+    }
+}

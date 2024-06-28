@@ -1,0 +1,113 @@
+.index-banner-wrapper {
+    .container {
+        @media (max-width: 1025px) {
+            padding-left: 0;
+            padding-right: 0;
+        }
+
+        .index-banner {
+            border-radius: 2px;
+            margin-bottom: clampFluid(144);
+            position: relative;
+            height: clampFluid(500, 649);
+            width: 100%;
+            padding-left: clampFluid(72);
+            background: linear-gradient(180deg, #E9E9E8 0%, #FFF 100%);
+
+            @media (max-width: 1025px) {
+                height: clampFluid(555, 1394, 375, 1025);
+                padding-left: clampFluid(14, 30, 375, 1025);
+            }
+
+            @media (max-width: 600px) {
+                margin-bottom: 45px;
+            }
+
+            &__info {
+                position: relative;
+                width: 60%;
+                z-index: 5;
+                padding-top: clampFluid(76);
+
+                @media (max-width:1200px) and (min-width:768px) {
+                    padding-top: clampFluid(126);
+                }
+
+                @media (max-width: 1025px) {
+                    padding-top: clampFluid(25, 144, 375, 1025);
+                    width: 100%;
+                }
+
+                .title {
+                    @include font-h1;
+                    margin-bottom: clampFluid(20, 50, 1025, 1920);
+                    background: linear-gradient(180deg, #22271C 13.11%, #4E5249 93.99%);
+                    background-clip: text;
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
+
+                    @media (max-width: 1025px) {
+                        width: 80%;
+                    }
+
+                    @media (max-width: 550px) {
+                        width: 100%;
+                    }
+                }
+
+                .text {
+                    width: 62%;
+                    display: flex;
+                    flex-direction: column;
+                    gap: clampFluid(16);
+                    margin-bottom: clampFluid(50, 60, 1025, 1920);
+
+                    @media (max-width: 1025px) {
+                        width: 90%;
+                    }
+
+                    @media (max-width: 550px) {
+                        width: 100%;
+                    }
+
+                    ul {
+                        @media (max-width: 550px) {
+                            margin-left: 0;
+                            width: 90%;
+                        }
+
+                        li {
+                            @include font-p;
+                            margin-bottom: clampFluid(16);
+
+                            &:last-child {
+                                margin-bottom: 0;
+                            }
+                            @media (max-width: 550px) {
+                               text-wrap: pretty;
+                            }
+    
+                        }
+                    }
+                }
+            }
+
+
+
+            .bg-img {
+
+                z-index: 1;
+                position: absolute;
+                object-fit: contain;
+                height: 150%;
+                bottom: 0;
+                right: 0;
+
+                @media (max-width: 1025px) {
+                    margin-right: -91px;
+                    height: 90%;
+                }
+            }
+        }
+    }
+}

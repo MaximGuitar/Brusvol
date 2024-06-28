@@ -1,0 +1,51 @@
+@import 'includes/variables';
+@import 'includes/mixins';
+
+@import './general';
+
+// Стили элементов страницы
+@import 'components/common/header';
+@import 'components/common/footer';
+@import 'components/common/footer-form';
+@import 'components/common/header-mobile';
+@import 'components/common/mobile-menu';
+@import 'components/common/datepicker';
+@import 'components/common/search';
+@import 'components/common/callbackModal';
+
+// Стили блоков контента
+@import 'content-blocks/index-banner';
+@import 'content-blocks/advantages';
+@import 'content-blocks/seo-block';
+@import 'content-blocks/catalog-urlFilter';
+@import 'content-blocks/aboutUs';
+@import 'content-blocks/projectsAndPrices';
+@import 'content-blocks/work-stages';
+@import 'content-blocks/reviews';
+@import 'content-blocks/ourWorksBlock';
+@import 'content-blocks/sertificates';
+@import 'content-blocks/card-feadback';
+@import 'content-blocks/complectations';
+@import 'content-blocks/news-block';
+@import 'content-blocks/additional-posts';
+@import 'content-blocks/textImage';
+@import 'content-blocks/gallery';
+@import 'content-blocks/quote';
+@import 'content-blocks/ImageTitleBlock';
+@import 'content-blocks/catalog-form';
+
+//Стили страниц
+@import 'components/pages/material-page';
+@import 'components/pages/sales-page';
+@import 'components/pages/our-production-page';
+@import 'components/pages/index';
+@import 'components/pages/page-404';
+@import 'components/pages/projects-catalog';
+@import 'components/pages/page-contacts';
+@import 'components/pages/ourWorks';
+@import 'components/pages/catalog-card';
+@import 'components/pages/page-types';
+
+
+
+

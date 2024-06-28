@@ -1,0 +1,141 @@
+.callbackModal {
+    &__title {
+        @include font-h1;
+        margin-bottom: clampFluid(45);
+        color: white;
+        text-align: center;
+    }
+
+    &__subtitle {
+        margin-bottom: clampFluid(30);
+        @include font-p;
+        color: white;
+        max-width: 80%;
+
+        @media (max-width: 800px) {
+            max-width: 100%;
+        }
+    }
+
+    &__form {
+        margin-bottom: clampFluid(25);
+    }
+
+    &__close {
+        cursor: pointer;
+        position: absolute;
+        top: clampFluid(10, 30);
+        right: clampFluid(10, 30);
+        width: clampFluid(30);
+        height: clampFluid(30);
+        fill: $greenCol;
+
+        &:hover {
+            fill: white;
+            transition: $transition-fast;
+        }
+    }
+
+}
+
+//css для формы в моадльном окне
+.modalCallback {
+    display: grid;
+    grid-template-columns: auto clampFluid(377);
+    gap: 15px;
+
+    @media (max-width: 800px) {
+        gap: 15px 0;
+    }
+
+    &__succes-send {
+        background: $greenCol;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: center;
+        @include font-p;
+        color: white;
+        width: 100%;
+        grid-column: 1 / 3;
+        grid-row: 4 / 5;
+        margin-top: 10px;
+    }
+
+    .userTask {
+        scroll-padding-top: 20px;
+        scroll-padding-right: 12px;
+        scroll-padding-bottom: 12px;
+        grid-row: 1/4;
+        height: 226px;
+    }
+
+    .name {
+        grid-column: 2/3;
+    }
+
+    .tel {
+        grid-column: 2/3;
+    }
+
+    .btn {
+        position: relative;
+        grid-column: 2/3;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: baseline;
+        height: clampFluid(64);
+        width: 100%;
+
+        height: 64px;
+
+        @media (max-width: 1024px) {
+            height: clampFluid(51, 64, 370, 1024);
+        }
+    }
+
+    @media (max-width: 800px) {
+        grid-template-columns: 1fr;
+
+        .userTask {
+            grid-row: 1/2;
+        }
+
+        .name {
+            grid-column: 1/3;
+        }
+
+        .tel {
+            grid-column: 1/3;
+        }
+
+        .btn {
+            grid-column: 1/3;
+        }
+    }
+
+    &__policy {
+        grid-column: 1 / 3;
+        grid-row: 4/5;
+        text-align: center;
+        margin-top: 10px;
+
+        span {
+            color: white;
+        }
+
+        a {
+            color: white;
+            text-decoration: underline 1px solid white;
+            text-underline-offset: 3px;
+
+            &:hover {
+                color: $greenCol;
+                text-decoration: underline 1px solid $greenCol;
+            }
+        }
+    }
+}

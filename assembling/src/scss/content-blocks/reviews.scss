@@ -1,0 +1,186 @@
+.reviews-wrapper {
+    margin-bottom: clampFluid(130);
+
+    .container {
+        position: relative;
+        .dotters {
+            display: none;
+            @media (max-width: 950px) {
+                display: flex;
+                justify-content: center;
+                margin-bottom: 30px;
+            }
+            margin: 0 auto;
+            .swiper-pagination-bullet{
+                background: #9BB686;
+            }
+            .swiper-pagination-bullet-active{
+                background: $greenCol;
+            }
+        }
+
+        .title {
+            @include font-h1;
+            margin-bottom: clampFluid(50, 70, 1025, 1920);
+            text-align: center;
+            @media (max-width: 950px) {
+                margin-bottom: clampFluid(19,50,375,950);
+            }
+        }
+
+        .reviews {
+            border-radius: 50px 0;
+            overflow: hidden;
+            margin-left: clampFluid(147, 116, 1025, 1920);
+            display: grid;
+            width: clampFluid(730, 1490, 1025, 1920);
+            overflow: hidden;
+            margin-bottom: clampFluid(50, 70, 1025, 1920);
+
+            @media (max-width: 1025px) {
+                margin-left: clampFluid(88, 116, 950, 1025);
+               
+            }
+
+            @media (max-width: 950px) {
+                margin-left: 0;
+                width: 100%;
+                margin-bottom: 10px;
+            }
+
+            .swiper-arrow {
+                cursor: pointer;
+                position: absolute;
+                top: 40%;
+                background: white;
+                width: 69px;
+                height: 69px;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: $transition-fast;
+
+                svg {
+                    width: clampFluid(33);
+                    height: clampFluid(14);
+                    fill: #799D5D;
+                }
+
+                &--left {
+                    left: 0;
+
+                    @media (max-width: 1200px) {
+                        left: 20px;
+                    }
+
+                }
+
+                &--right {
+                    right: 0;
+                    transform: rotate(180deg);
+
+                    @media (max-width: 1200px) {
+                        right: 20px;
+                    }
+                }
+
+                &:hover {
+                    transition: $transition-fast;
+                    background: $greenCol;
+
+                    svg {
+                        fill: white;
+                    }
+                }
+
+                @media (max-width: 950px) {
+                    display: none;
+                }
+            }
+
+            .swiper-wrapper {
+
+
+                .reviews__elem {
+                    &:first-child {
+                        // margin-right: clampFluid(30);
+                    }
+
+                    padding: clampFluid(30);
+
+                    .text {
+                        p{
+                            @include font-p;
+                        }
+                    }
+
+                    .top-content {
+                        margin-bottom: clampFluid(20);
+                        display: flex;
+                        align-items: center;
+
+                        .img-container {
+                            width: 80px;
+                            height: 80px;
+                            border-radius: 50%;
+                            margin-right: clampFluid(25);
+                            grid-column: 1/2;
+
+                            img {
+                                border-radius: 50%;
+                            }
+                            @media (max-width: 950px) {
+                                width: clampFluid(60,80,375,950);
+                                height: clampFluid(60,80,375,950);
+                            }
+                        }
+
+                        .info {
+                            display: flex;
+                            flex-direction: column;
+
+                            .name {
+                                @include font-p;
+                                margin-bottom: clampFluid(8);
+                                color: $greenCol;
+                            }
+
+                            .stars {
+                                display: flex;
+                                gap: 7px;
+
+                                .star {
+                                    width: 15px;
+                                    height: 15px;
+                                    @media (max-width: 950px) {
+                                        width: clampFluid(11,15,375,950);
+                                        height: clampFluid(11,15,375,950);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }           
+        }
+
+        .subtitle {
+            @include font-p;
+            text-align: center;
+            color: #22271C;
+            margin-bottom: clampFluid(30, 20, 1025, 1920);
+            @media (max-width: 950px) {
+                margin-bottom: clampFluid(20,30,375,950);
+            }
+        }
+
+        .btn {
+            padding: 20px clampFluid(30, 76, 1025, 1920);
+            margin: 0 auto;
+            @media (max-width: 950px) {
+               width: 100%;
+            }
+        }
+    }
+}

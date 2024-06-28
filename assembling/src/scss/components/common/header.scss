@@ -1,0 +1,313 @@
+.header {
+
+
+    .chat {
+        cursor: pointer;
+        z-index: 10;
+        width: clampFluid(108);
+        height: clampFluid(108);
+        position: fixed;
+        right: 5%;
+        top: 84%;
+    }
+
+    @media (max-width: 1200px) {
+        display: none;
+    }
+
+    .contacts {
+        margin-left: auto;
+        display: flex;
+        align-items: center;
+
+        .tel {
+            margin-right: clampFluid(16);
+            text-decoration: underline;
+            @include font-p;
+            &:hover{
+                color: $greenCol;
+                text-underline-offset: 1px;
+            }
+                
+        }
+
+        .icons {
+            margin-right: -3px;
+            margin-bottom: 3px;
+            display: flex;
+            gap: clampFluid(9);
+
+            &__elem {
+                width: clampFluid(30);
+                height: clampFluid(30);
+
+                &:hover {
+                    svg {
+                        fill: $greenCol;
+                        transition: $transition-fast;
+                    }
+                }
+
+                svg {
+                    fill: #4E5249;
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+        }
+    }
+
+    .header-top {
+        margin-top: clampFluid(40);
+
+        margin-bottom: clampFluid(20);
+        height: clampFluid(74);
+        display: flex;
+        align-items: center;
+
+        @media (max-width: 1700px) {
+            padding: 0 clampFluid(15);
+        }
+
+        .logo {
+            width: clampFluid(277);
+            height: clampFluid(75);
+            padding-left: clampFluid(7);
+            fill: black;
+        }
+
+        .info {
+            display: flex;
+            flex-direction: column;
+            // gap: clampFluid(19);
+            margin-left: auto;
+            margin-right: clampFluid(53);
+            padding-top: clampFluid(4);
+
+            .adress {
+                @include font-p;
+                &:hover {
+                    text-decoration: none;
+                    color: $greenCol;
+                }
+                margin-bottom: clampFluid(11);
+            }
+
+
+
+        }
+    }
+
+    .header-bottom {
+        height: clampFluid(68);
+        background: $greenCol;
+        display: flex;
+        align-items: center;
+        position: sticky;
+        z-index: 10;
+        border-radius: 2px;
+
+        .header-menu {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            width: fit-content;
+            margin-left: clampFluid(43);
+            margin-right: 12px;
+
+            &__item {
+                height: 100%;
+
+                a {
+                    height: 100%;
+                    padding-left: clampFluid(45);
+                    padding-right: clampFluid(45);
+                    @include font-p;
+                    line-height: clampFluid(20);
+                    color: white;
+                    display: flex;
+                    align-items: center;
+                }
+
+                &:hover {
+                    background: $hoverCol2;
+
+                    a {
+                        text-decoration: none;
+                    }
+                }
+            }
+        }
+
+
+
+        .search {
+            z-index: 5;
+            height: 100%;
+            cursor: pointer;
+            padding-left: clampFluid(24);
+            padding-right: clampFluid(24);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+
+            svg {
+                width: clampFluid(30);
+                height: clampFluid(30);
+                fill: white;
+            }
+
+
+
+            &:hover {
+                background: $hoverCol2;
+            }
+        }
+
+
+
+    }
+
+
+}
+
+.desc-search-wrapper {
+    right: 0;
+    z-index: 1;
+    transition: $transition-fast;
+    width: clampFluid(367);
+    height: clampFluid(56);
+    border: 2px solid $greenCol;
+    position: absolute;
+    transform: translate(-18%, -100%);
+
+    .search-main {
+        border: none;
+        width: 100%;
+        height: 100%;
+        background: #F0F0F0;
+        border-radius: 2px;
+        padding-left: clampFluid(30);
+        @include font-p;
+        color: $grayCol;
+        padding-right: clampFluid(60);
+
+        &::placeholder {
+            @include font-p;
+            color: #7A7D77;
+        }
+    }
+
+    .icon {
+        cursor: pointer;
+        right: 30px;
+        top: clampFluid(7, 12, 1200, 1920);
+        position: absolute;
+        height: clampFluid(30);
+        width: clampFluid(30);
+
+        svg {
+            fill: $greenCol;
+        }
+    }
+
+    &.active {
+        transform: translate(-18%, 0%);
+        transition: $transition-fast;
+    }
+}
+
+.header-additional {
+    position: fixed;
+    top: 50%;
+    right: 0;
+    width: 218px;
+    z-index: 10;
+    transition: $transition-fast;
+    transform: translate(140px, 0px);
+    svg{
+        scale: -1;
+    }
+    &.active {
+        transition: $transition-fast;
+        transform: translate(0px, 0px);
+
+        .header-additional__open-hand {
+            svg {
+                scale: 1;
+            }
+        }
+    }
+
+    @media (max-width: 1024px) {
+        display: none;
+    }
+
+    &__elem {
+        border-radius: 0px 0px 2px 25px;
+
+        &:first-child {
+            border-radius: 25px 2px 0px 0px;
+        }
+
+        background: white;
+        cursor: pointer;
+        display: flex;
+        padding-top: 8px;
+        padding: 14px 20px 14px;
+        .img-container{
+            pointer-events: none;
+            margin-right: 20px;
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            border-radius: 50%;
+        }
+        img {
+            pointer-events: none;
+            width: 42px;
+            height: 42px;
+        }
+
+        .text {
+            pointer-events: none;
+            @include font-p;
+            color: #5B5B5B;
+        }
+
+        &:hover {
+            background: #EEF3EB;
+        }
+    }
+
+    &__open-hand {
+        background: #9BB686;
+        width: 18px;
+        height: 28px;
+        border-radius: 20px 0px 0px 20px;
+        position: absolute;
+        top: 41%;
+        left: -18px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: $transition-fast;
+        &:hover {
+            background: #7A7D77;
+            transition: $transition-fast;
+        }
+
+        svg {
+            fill: white;
+            margin-left: 4px;
+            height: 12px;
+            width: 6px;
+        }
+    }
+}

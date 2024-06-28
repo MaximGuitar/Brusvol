@@ -1,0 +1,119 @@
+.sertificates-wrapper {
+    margin-bottom: clampFluid(130);
+
+    .container {
+        position: relative;
+
+        .dotters {
+            display: none;
+
+            @media (max-width: 600px) {
+                display: flex;
+                justify-content: center;
+                margin-bottom: 30px;
+            }
+
+            margin: 0 auto;
+
+            .swiper-pagination-bullet {
+                background: #9BB686;
+            }
+
+            .swiper-pagination-bullet-active {
+                background: $greenCol;
+            }
+        }
+
+        .title {
+            @include font-h1;
+            margin-bottom: clampFluid(50, 60, 1025, 1920);
+            text-align: center;
+
+            @media (max-width: 600px) {
+                margin-bottom: clampFluid(41, 50, 375, 950);
+            }
+        }
+
+        .sertificates {
+            margin: auto;
+            display: grid;
+            width: clampFluid(730, 1490, 1025, 1920);
+            overflow: hidden;
+            margin-bottom: clampFluid(50, 70, 1025, 1920);
+
+            @media (max-width: 600px) {
+                margin-left: 0;
+                width: 100%;
+                margin-bottom: 10px;
+            }
+
+            .swiper-arrow {
+                cursor: pointer;
+                position: absolute;
+                top: 50%;
+                background: white;
+                width: 69px;
+                height: 69px;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: $transition-fast;
+
+                svg {
+                    width: clampFluid(33);
+                    height: clampFluid(14);
+                    fill: #799D5D;
+                }
+
+                &--left {
+                    left: 0;
+
+                    @media (max-width: 1200px) {
+                        left: 20px;
+                    }
+
+                }
+
+                &--right {
+                    right: 0;
+                    transform: rotate(180deg);
+
+                    @media (max-width: 1200px) {
+                        right: 20px;
+                    }
+                }
+
+                &:hover {
+                    transition: $transition-fast;
+                    background: $greenCol;
+
+                    svg {
+                        fill: white;
+                    }
+                }
+
+                @media (max-width: 600px) {
+                    display: none;
+                }
+            }
+
+            .swiper-wrapper {
+                .sertificates__elem {
+                    &:hover{
+                        filter: brightness(0.5);
+                        transition: $transition-fast;
+                    }
+                }
+
+                .img-container {
+                    height: inherit;
+                    // height: clampFluid(522, 658, 1025, 1920);
+                    // @media (max-width: 1025px) {
+                    //     height: clampFluid(341, 522, 370, 1025);
+                    // }
+                }
+            }
+        }
+    }
+}

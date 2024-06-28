@@ -1,0 +1,110 @@
+.header-mobile {
+    .info {
+        margin-left: auto;
+        margin-right: 30px;
+    }
+
+    .contacts {
+        margin-left: auto;
+        display: flex;
+        align-items: center;
+
+        @media (max-width: 600px) {
+            display: none;
+        }
+
+        .tel {
+            margin-right: clampFluid(16);
+            text-decoration: underline;
+            @include font-p;
+            color: white;
+        }
+
+        .icons {
+
+            display: flex;
+            gap: clampFluid(9);
+
+            &__elem {
+                width: 30px;
+                height: 30px;
+
+                &:hover {
+                    svg {
+                        fill: $greenCol;
+                        transition: $transition-fast;
+                    }
+                }
+
+                svg {
+                    fill: white;
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+        }
+    }
+
+    .container {
+        height: clampFluid(49, 68);
+        background: $greenCol;
+        display: none;
+        align-items: center;
+        justify-content: space-between;
+
+        .logo {
+            padding: 5px 0;
+            width: clampFluid(141, 180);
+            height: 100%;
+
+            svg {
+                fill: white;
+            }
+        }
+
+        .menu-mobile-btn {
+            width: clampFluid(30, 50);
+            height: clampFluid(30, 50);
+            fill: white;
+
+            .cross {
+                display: none;
+                fill: white;
+                @media (max-width:768px){
+                    fill: $greenCol;
+                }
+            }
+        }
+
+        @media (max-width: 1200px) {
+            display: flex;
+        }
+    }
+
+    &.active {
+        .container {
+            @media (max-width:768px){
+                background: white;
+                transition: $transition-fast;
+            }
+
+            .menu-mobile-btn {
+                .burger {
+                    display: none;
+                }
+
+                .cross {
+                    display: block;
+                }
+            }
+
+            .logo {
+                @media (max-width:768px){
+                    svg {
+                        fill: $greenCol;
+                    }
+                }
+            }
+        }
+    }
+}

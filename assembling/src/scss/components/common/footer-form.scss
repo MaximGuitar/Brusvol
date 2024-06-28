@@ -1,0 +1,130 @@
+.footer-form {
+    width: 100%;
+    background: $greenCol;
+    padding-bottom: clampFluid(64);
+    padding-top: clampFluid(56);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    .title {
+        @include font-h1;
+        margin-bottom: clampFluid(30);
+        color: white;
+    }
+
+    .footer-callback {
+
+        margin-bottom: clampFluid(11, 25);
+        display: grid;
+        grid-template-columns: 576px 325px;
+        gap: 14px 18px;
+
+        @media (max-width: 1024px) {
+            grid-template-columns: clampFluid(376,576,700,1024) clampFluid(225,325,700,1024);
+        }
+
+
+        .input-wrapper__item {
+            grid-row: 1/3;
+            padding: 10px;
+            background-color: #fff;
+            border-radius: 25px 0 25px 0;
+        }
+
+        .userTask {
+            width: 100%;
+            height: 122px;
+            padding-left: 5px;
+            padding-top: 5px;
+            padding-right: 5px;
+
+            @media (max-width: 900px) {
+                height: 97px;
+            }
+
+            &::-webkit-scrollbar-thumb {
+                border-radius: 100px;
+                background-color: $greenCol;
+                border: 5px solid transparent;
+            }
+
+            &::-webkit-scrollbar {
+
+                width: 4px;
+            }
+
+            &::-webkit-scrollbar-track {
+                display: block;
+                margin-right: 5px;
+                background-color: #BCCEAE;
+                border-radius: 100px;
+            }
+        }
+
+        .email {}
+
+        .submit_btn {
+            grid-column: 2/3;
+            position: relative;
+            width: 100%;
+            height: 64px;
+        }
+
+        @media (max-width: 700px) {
+            width: 100%;
+            padding: 0 14px;
+            grid-template-columns: 1fr;
+
+            .userTask {
+                grid-row: unset;
+            }
+
+            .submit_btn {
+                grid-column: unset;
+            }
+        }
+
+        &__indicator {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    }
+
+    .policy {
+        color: white;
+        text-align: center;
+
+        a {
+            color: white;
+            text-decoration: underline white 1px;
+            text-align: center;
+
+            &:hover {
+                color: black;
+                text-decoration: underline $grayCol 1px;
+            }
+        }
+    }
+
+    &__succes-send {
+        background: #22271C;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: center;
+        @include font-p;
+        color: white;
+        margin: auto;
+        width: clampFluid(612, 918, 900, 1920);
+
+        @media (max-width: 900px) {
+            width: 100%;
+        }
+
+    }
+}

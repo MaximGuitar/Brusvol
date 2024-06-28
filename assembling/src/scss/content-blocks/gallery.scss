@@ -1,0 +1,50 @@
+.gallery-wrapper {
+    margin-bottom: clampFluid(100, 130, 1024, 1920);
+
+    @media (max-width: 1024px) {
+        margin-bottom: clampFluid(70, 100, 600, 1024);
+    }
+
+    .gallery {
+        display: grid;
+        grid-template-columns: clampFluid(1164) auto;
+        gap: 30px;
+
+        .swiper {
+            margin-bottom: 0;
+        }
+
+        .img-container {
+            height: clampFluid(722);
+
+            @media (max-width: 1025px) {
+                height: auto;
+            }
+
+            img {
+                object-fit: cover;
+            }
+        }
+
+        @media (max-width: 1200px) {
+            grid-template-columns: 1fr;
+        }
+
+
+        &__slider {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        &__text {
+            @include font-p;
+            color: #4E5249;
+
+            p {
+                margin-bottom: 0;
+            }
+
+        }
+    }
+}

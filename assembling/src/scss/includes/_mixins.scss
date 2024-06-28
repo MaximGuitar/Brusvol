@@ -1,0 +1,275 @@
+// Fonts
+@function calcFluid($f-min, $f-max, $w-min: 370, $w-max: 1920) {
+	$k: (
+		$f-max - $f-min)/($w-max - $w-min
+	);
+$b: $f-min - $k * $w-min;
+
+$b: $b * 1px;
+$f-max-v: $f-max * 1px;
+$f-min-v: $f-min * 1px;
+@return clamp($f-min-v, calc(#{$k} * 100vw + #{$b}), $f-max-v);
+}
+
+@function calcFluidP($f-min, $f-max, $v-min: 320, $v-max: 1920, $percent: 100) {
+	$k: (
+		$f-max - $f-min)/($v-max - $v-min
+	);
+$b: $f-min - $k * $v-min;
+$b: $b * 1px;
+$p: $percent * 1%;
+@return calc(#{$p} + (#{$k} * 100vw + #{$b}));
+}
+
+@function calcFluidM($f-min, $f-max, $v-min: 320, $v-max: 1920, $percent: 100) {
+	$k: (
+		$f-max - $f-min)/($v-max - $v-min
+	);
+$b: $f-min - $k * $v-min;
+$b: $b * 1px;
+$p: $percent * 1%;
+@return calc(#{$p} - (#{$k} * 100vw + #{$b}));
+}
+
+@function clampFluid($clamp-min, $clamp-max: 'None', $calc-1: 'None', $calc-2: 'None', $w-min: 'None', $w-max: 'None') {
+	@if $clamp-max =='None' {
+		$clamp-max: $clamp-min;
+		$clamp-min: $clamp-max * 2 / 3;
+	}
+
+	$clamp-min-rend: 'None';
+	$clamp-max-rend: 'None';
+
+	$w: $clamp-max/1920 * 100 * 1vw;
+
+	@if $clamp-min ==0 {
+		$clamp-min: 0.001;
+	}
+
+	@if $clamp-max ==0 {
+		$clamp-max-rend: 0.001;
+	}
+
+	@if $clamp-max < $clamp-min {
+		$clamp-min-rend: $clamp-max * 1px;
+		$clamp-max-rend: $clamp-min * 1px;
+	}
+
+	@else {
+		$clamp-max-rend: $clamp-max * 1px;
+		$clamp-min-rend: $clamp-min * 1px;
+	}
+
+	@if $calc-1 =='None' {
+		@return clamp($clamp-min-rend, $w, $clamp-max-rend);
+	}
+
+	@if $w-min =='None' {
+		$k: (
+			$clamp-max - $clamp-min)/($calc-2 - $calc-1
+		);
+	$b: $clamp-min - $k * $calc-1;
+	$b: $b * 1px;
+	@return clamp($clamp-min-rend, calc(#{$k} * 100vw + #{$b}), $clamp-max-rend);
+}
+
+
+@if $w-max !='None' {
+	$k: (
+		$calc-2 - $calc-1)/($w-max - $w-min
+	);
+$b: $calc-1 - $k * $w-min;
+$b: $b * 1px;
+@return clamp($clamp-min-rend, calc(#{$k} * 100vw + #{$b}), $clamp-max-rend);
+}
+}
+
+// General fonts
+@mixin font-h1 {
+	color: $blackCol;
+	font-size: clampFluid(24, 55);
+	font-weight: 600;
+	line-height: clampFluid(30, 61);
+
+	@media (max-width: 1024px) {
+		font-size: clampFluid(22, 45, 370, 1024);
+		line-height: clampFluid(25, 50, 370, 1024);
+	}
+}
+
+@mixin font-h2 {
+	color: $blackCol;
+	font-size: clampFluid(23, 36);
+	font-weight: 600;
+	line-height: clampFluid(25, 40);
+
+	@media (max-width: 1024px) {
+		font-size: clampFluid(18, 30, 370, 1024);
+		line-height: clampFluid(25, 33, 370, 1024);
+	}
+}
+
+@mixin font-h3 {
+	color: $blackCol;
+	font-size: clampFluid(18, 30);
+	font-weight: 500;
+	line-height: clampFluid(21, 33);
+
+	@media (max-width: 1024px) {
+		font-weight: 600;
+		font-size: clampFluid(18, 25, 370, 1024);
+		line-height: clampFluid(21, 27, 370, 1024);
+	}
+}
+
+
+@mixin font-p {
+	color: $textCol;
+	font-size: clampFluid(14, 20);
+	font-weight: 400;
+	line-height: clampFluid(20, 28);
+
+	@media (max-width: 1024px) {
+		font-size: clampFluid(14, 20, 370, 1024);
+		line-height: clampFluid(16, 28, 370, 1024);
+	}
+}
+
+@mixin font-btn {
+	color: white;
+	font-size: clampFluid(14, 20);
+	font-weight: 600;
+	line-height: clampFluid(17, 24);
+
+	@media (max-width: 1024px) {
+		font-size: clampFluid(14, 20, 370, 1024);
+		line-height: clampFluid(17, 24, 370, 1024);
+	}
+}
+
+@mixin font-signL {
+	color: $textCol;
+	font-weight: 400;
+	line-height: clampFluid(20, 25);
+	font-size: clampFluid(14, 18);
+
+	@media (max-width: 1024px) {
+		font-size: clampFluid(14, 18, 370, 1024);
+		line-height: clampFluid(20, 25, 370, 1024);
+	}
+}
+
+@mixin font-signS {
+	color: $textCol;
+	font-weight: 400;
+	line-height: clampFluid(20, 23);
+	font-size: clampFluid(12, 20);
+	
+	@media (max-width: 1024px) {
+		font-size: clampFluid(12, 16, 370, 1024);
+		line-height: clampFluid(20, 20, 370, 1024);
+	}
+}
+
+@function r($size) {
+	$some: $size / 16;
+	@return #{$some}rem;
+}
+
+// Media
+@mixin _1920 {
+	@media (max-width: 1919px) {
+		@content;
+	}
+}
+
+@mixin _1920min {
+	@media (min-width: 1920px) {
+		@content;
+	}
+}
+
+@mixin _1440 {
+	@media (max-width: 1440px) {
+		@content;
+	}
+}
+
+@mixin _1200 {
+	@media (max-width: 1200px) {
+		@content;
+	}
+}
+
+@mixin _1200min {
+	@media (min-width: 1201px) {
+		@content;
+	}
+}
+
+@mixin _1024 {
+	@media (max-width: 1024px) {
+		@content;
+	}
+}
+
+@mixin _930 {
+	@media (max-width: 930px) {
+		@content;
+	}
+}
+
+@mixin _930min {
+	@media (min-width: 929px) {
+		@content;
+	}
+}
+
+@mixin _768 {
+	@media (max-width: 768px) {
+		@content;
+	}
+}
+
+@mixin _650 {
+	@media (max-width: 650px) {
+		@content;
+	}
+}
+
+@mixin _470 {
+	@media (max-width: 470px) {
+		@content;
+	}
+}
+
+@mixin _425 {
+	@media (max-width: 425px) {
+		@content;
+	}
+}
+
+@mixin _370 {
+	@media (max-width: 370px) {
+		@content;
+	}
+}
+
+@mixin _350 {
+	@media (max-width: 350px) {
+		@content;
+	}
+}
+
+
+@mixin _320 {
+	@media (max-width: 320px) {
+		@content;
+	}
+}
+
+@mixin max-font {
+	@include _1920min {
+		@content;
+	}
+}

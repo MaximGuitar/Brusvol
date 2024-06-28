@@ -1,0 +1,105 @@
+.material-section {
+    .materials {
+        display: grid;
+        margin-bottom: clampFluid(130, 70);
+        gap: clampFluid(30) clampFluid(30);
+
+        @media (max-width: 900px) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        @media (max-width: 530px) {
+            grid-template-columns: repeat(1, 1fr);
+        }
+        &__card {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            justify-content: center;
+            height: auto;
+            padding: 30px;
+
+            .img-container {
+                width: auto;
+                height: clampFluid(176, 238, 1024, 1920);
+
+                @media (max-width: 1024px) {
+                    height: clampFluid(199, 176, 370, 1024);
+                }
+
+               
+
+                margin-bottom: 23px;
+
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+
+            .info {
+                margin-bottom: r(25);
+
+                &__titles {
+                    .title {
+                        @include font-h3;
+                        text-align: center;
+                        color: #588534;
+                        width: 90%;
+                        margin-bottom: 8px;
+                        //извините но тут вёрстка гейская(
+                        @media (max-width: 530px) {
+                            width: 100%;
+                            text-wrap: nowrap;
+                        }
+                        @media (max-width: 530px) {
+                            text-wrap: wrap;
+                        }
+
+                    }
+
+                    .subtitle {
+                        @include font-p;
+                        color: #4E4E4E;
+                        text-align: center;
+                        text-wrap: nowrap;
+                        margin-bottom: 25px;
+
+                        @media (max-width: 1024px) {
+                            @include font-signS;
+                            margin-bottom: 20px;
+                        }
+
+                    }
+                }
+
+                &__material {
+                    margin-top: auto;
+
+                    .price {
+                        @include font-h3;
+                        color: $blackCol;
+                        text-align: center;
+                        margin-bottom: 20px;
+                    }
+
+                    .diameter {
+                        @include font-p;
+                        text-align: center;
+                        color: #4E4E4E;
+                        text-wrap: nowrap;
+
+                        @media (max-width: 1024px) {
+                            @include font-signS;
+                        }
+
+                        @media (max-width: 425px) {
+                            @include font-p;
+                        }
+                    }
+                }
+            }
+
+        }
+    }
+}

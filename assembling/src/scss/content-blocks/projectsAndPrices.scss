@@ -1,0 +1,150 @@
+.projectAndPrices-wrapper {
+    margin-bottom: 4px;
+
+    .title {
+        @include font-h1;
+        color: #1C1F18;
+        margin-bottom: clampFluid(53);
+        padding-left: clampFluid(20);
+    }
+
+    .projectAndPrices {
+        display: grid;
+        grid-template-columns: repeat(3, auto);
+        gap: clampFluid(28) clampFluid(29);
+
+        @media (max-width: 1200px) {
+            grid-template-columns: repeat(2, auto);
+            gap: clampFluid(29) clampFluid(50);
+        }
+
+        @media (max-width: 800px) {
+            grid-template-columns: 1fr;
+            gap: clampFluid(47);
+        }
+
+
+        &__card {
+            &:hover {
+                transition: $transition;
+                background: white;
+                text-decoration: none;
+
+                .btn {
+                    background: transparent;
+                    color: $greenCol;
+                    text-decoration: none;
+
+                    .arrow {
+                        fill: $greenCol;
+                    }
+                }
+            }
+
+            display: flex;
+            align-items: stretch;
+            flex-direction: column;
+            transition: $transition;
+            background: none;
+            justify-content: space-between;
+
+            .img-container {
+                margin-bottom: clampFluid(30);
+                width: 100%;
+                height: auto;
+                width: clampFluid(553);
+                height: clampFluid(429);
+
+                @media (max-width: 1200px) {
+                    width: 100%;
+                }
+
+                img {
+                    object-fit: cover;
+                }
+            }
+
+            .info {
+                padding-left: clampFluid(20);
+                padding-right: clampFluid(20);
+
+                @media (max-width: 520px) {
+                    padding: 0;
+                }
+
+                &__title {
+                    @include font-h3;
+                    margin-bottom: clampFluid(17);
+
+                }
+
+                &__descr {
+                    @include font-p;
+                    color: #4E5249;
+                    margin-bottom: clampFluid(35);
+                }
+
+
+            }
+
+            .priceMore {
+                padding-bottom: clampFluid(30);
+                margin-top: auto;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                gap: clampFluid(11);
+                padding-left: clampFluid(20);
+                padding-right: clampFluid(20);
+
+                @media (max-width: 520px) {
+                    padding: 0;
+                }
+
+                .price {
+                    @include font-h3;
+                    color: $greenCol;
+                }
+
+                .btn {
+                    padding: clampFluid(15) clampFluid(20) clampFluid(14) clampFluid(17);
+                }
+            }
+
+        }
+
+        .lastCard {
+            transition: $transition-fast;
+            &:hover {
+                .btn {
+
+                    background: #292E24;
+                    color: white;
+                    border: #292E24 2px solid;
+
+                }
+            }
+
+            .btn {
+                width: auto;
+                margin-top: auto;
+                padding-top: clampFluid(15);
+                padding-bottom: clampFluid(16);
+                margin: 0 clampFluid(20) clampFluid(30) clampFluid(20);
+                background: transparent;
+                color: $greenCol;
+                transition: $transition-fast;
+                svg {
+                    fill: $greenCol;
+                }
+
+                &:hover {
+                    transition: $transition-fast;
+                    background: #292E24;
+                    color: white;
+                    border: #292E24 2px solid;
+                }
+            }
+        }
+    }
+}

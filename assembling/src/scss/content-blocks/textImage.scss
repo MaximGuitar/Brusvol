@@ -1,0 +1,42 @@
+.textImage-wrapper {
+    margin-bottom: clampFluid(100, 60, 1024, 1920);
+
+    .textImage {
+        display: grid;
+        gap: 61px;
+        grid-template-columns: auto clampFluid(467, 720, 1024, 1920);
+
+
+        @media (max-width: 1024px) {
+            margin-bottom: clampFluid(70, 100, 600, 1024);
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        @media (max-width: 600px) {
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+
+        &__text {
+            p {
+                @include font-p;
+                padding-bottom: 0;
+            }
+
+        }
+
+        &__image {
+            width: 100%;
+            height: clampFluid(274, 422, 1024, 1920);
+
+            @media (max-width: 600px) {
+                height: clampFluid(200, 274, 1024, 1920);
+            }
+
+            img {
+                object-fit: cover;
+            }
+        }
+    }
+}
